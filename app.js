@@ -49,7 +49,7 @@ const saveNexClick = next_button.onclick;
 
 // https://github.com/apnsngr/bulma-popover
 function start_intruction() {
-  if (JSON.parse(localStorage.getItem("save")) == null) {
+  if (JSON.parse(localStorage.getItem("save")) == null || JSON.parse(localStorage.getItem("save")).length <= 1) {
     let i;
     const blurArr = [
       next_butt,
@@ -94,6 +94,7 @@ function start_intruction() {
           // history_section.remove("blur_background")
           let interval_3 = setInterval(() => {
             history_section.classList.remove("history_active");
+            ol.innerHTML = " ";
             history_button.onclick = saveHistoryClick;
             clearInterval(interval_3);
           }, 7000);
@@ -119,6 +120,18 @@ function start_intruction() {
   }
 }
 
+const save = (joke) =>{
+  // checking if "save" exist
+  let data = JSON.parse(localStorage.getItem("save"));
+  if (data == null) {
+    data = [];
+  }
+  data.push(joke)
+
+  // setting "save"
+  localStorage.setItem("save", JSON.stringify(data));
+}
+
 const defaultDarkMode = async () => {
   const jokes = await getDadJoke();
   // making checkbox equal to true from getDarkMode
@@ -132,6 +145,7 @@ const defaultDarkMode = async () => {
     }, 800);
   }, 700);
   card_text.innerHTML = jokes;
+  save(jokes);
   start_intruction();
 };
 
@@ -169,11 +183,10 @@ function darkModeList() {
   });
 }
 
+
+
+
 const next = async () => {
-  let data = JSON.parse(localStorage.getItem("save"));
-  if (data === null) {
-    data = [];
-  }
 
   card_text.innerHTML = " ";
   card_text.classList.add("run");
@@ -183,8 +196,7 @@ const next = async () => {
   card_text.style.animation = null;
 
   const jokes = await getDadJoke();
-  localStorage.setItem("joke", JSON.stringify(jokes));
-  data.push(jokes);
+  save(jokes);
   card_text.innerHTML = jokes;
 
   const newLI = document.createElement("li");
@@ -195,7 +207,7 @@ const next = async () => {
     newLI.classList.toggle("darkMode-text");
   }
 
-  localStorage.setItem("save", JSON.stringify(data));
+  
   //http://jsfiddle.net/Bxn2t/1/
 };
 
@@ -235,7 +247,7 @@ const closeHistory = () => {
 };
 
 clear_button.addEventListener("click", () => {
-  localStorage.removeItem("save");
+  localStorage.clear("save");
   showHistory();
 });
 
