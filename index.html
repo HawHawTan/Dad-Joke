@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <!-- bulma -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="app.js"></script>
+
+    <!-- popover -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-popover@1.1.1/css/bulma-popover.min.css">
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/f74efe94e6.js" crossorigin="anonymous"></script>
+
+    <title>Dad Jokes Generator!</title>
+  </head>
+  <body onload="defaultDarkMode()" >
+    <div id="preloader" >
+      <div class="preloader__spinner"></div>
+    </div>
+    <div class="container">
+
+      <div class="lv level is-mobile p-5 is-size-4-mobile">
+        <div class="level-left">
+            <div class="dad-icon"></div>
+        </div>
+        <div class="level-right is-mo">
+          <div class="popover1 popover is-popover-bottom is-not-popover-hover">
+            <label class="switch">
+              <input id="toggle" type="checkbox" onclick="darkMode()"/>  
+                <span class="slider round"></span>
+                <div class="popover-content">
+                   Switching dark or light mode
+                </div>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- showing the jokes -->
+      <div class="section">
+        <div class="column is-half is-offset-one-quarter">
+          <div class="card">
+            <div class="popover2 popover is-popover-top is-not-popover-hover">  
+              <div class="card-content">
+                <div class="content">
+                    <p></p>
+                    
+                </div>
+                <div class="popover-content">
+                  Preseting jokes &#129313;
+                </div>
+              </div>
+            </div>
+
+              <footer class="card-footer">
+                <div class="popover3 popover is-popover-bottom is-not-popover-hover card-footer-item p-0">
+                  <a id="history" onclick="history()" class="card-footer-item footer_text">History</a>
+                  <div class="popover-content">
+                    showing list of jokes previously &#128214;
+                   </div>
+                </div>
+
+                <div class="popover5 popover is-popover-bottom is-not-popover-hover card-footer-item p-0">
+                  <a id="next" onclick="next()" class="card-footer-item footer_text">Next</a>
+                  <div class="popover-content">
+                    next joke (Enjoy the jokes!) &#8594; 
+                    <br>
+                   
+                  </div>
+                </div>
+                <!-- <div class="popover_wrapper card-footer-item footer_text">
+                    <a id="history" onclick="history()">History</a>
+                    <div class="popover_content">
+                      hi there you
+                    </div>
+                </div>
+            
+                <div class="popover_wrapper card-footer-item footer_text">
+                    <a id="next" onclick="next()" >Next</a>
+                    <div class="popover_content">
+                      hi there you
+                    </div>
+                </div> -->
+              </footer>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- for listing out the history -->
+      <div class="section history">
+        <div class="column is-half is-offset-one-quarter">
+            <div class="box"> 
+              <div class="history_content content">
+                <div class="level is-mobile">
+                  <div class="level-left">
+                    <div class="title_history title"> History </div>
+                  </div>
+                  
+                  <div class="level-right ">
+                    <span class="icon">
+                      <i class="xmark fa-solid fa-square-xmark "></i>
+                    </span>
+                  </div> 
+                </div>
+                
+                <ol class="ol"></ol>
+              
+                  <div class="buttons is-centered">
+                    <div class="popover4 popover is-popover-right is-not-popover-hover">
+                      <button class="button is-danger clear" onclick="clear()"> Clear</button>
+                      <div class="popover-content">
+                        To clear the history list
+                      </div>
+                  </div>                 
+                </div>
+              </div>
+          </div>
+      </div>
+    </div>
+    <!-- <footer class="footer"> -->
+      <div class="has-text-centered">
+        <p class="bottom-text">
+          <strong class="bottom-text">@Dad Jokes Generator 2023</strong> by <a href="https://hawhawtan.com">Haw Haw Tan</a>. API is licensed by
+          <a href="https://icanhazdadjoke.com/">icanhazdadjoke</a>
+        </p>
+      </div>
+    <!-- </footer> -->
+  </body>
+</html>

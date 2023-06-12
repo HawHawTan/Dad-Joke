@@ -1,0 +1,301 @@
+:root{
+  --purple: #28096b;
+  --light-blue: #9fcddd;
+  --yellow: #fff000;
+  --darkMode: #101010;
+  --light-black: #1c1c1c;
+  --green: hsl(171, 100%, 41%);
+  --bg-color: #ffffff;
+  /* --light-black: #1c1c1c; */
+}
+
+@keyframes rightToLeft {
+  0%{
+    transform: translateX(100px);
+  }
+  100%{
+    transform: translateX(-10px);
+  
+  }
+}
+
+@keyframes fade{
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes preloader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes blurry{
+  0%{
+    filter: blur(0px);
+  }
+  50%{
+    filter: blur(2.5px);
+  }
+  100%{
+    filter: blur(5px);
+  }
+}
+
+.dad-icon{
+  height: 62px;
+  width: 221px;
+  background:  url(Dad.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-blend-mode: darken;
+  filter: invert(0);
+  padding: 0;
+}
+
+.dad-icon-dark{
+  filter: invert(1);
+}
+
+.popover1,.popover2,.popover3,.popover3,.popover4,.popover5{
+  transition: all 0.4s ease-in-out;
+}
+
+.blur_background{
+  filter: blur(5px);
+  transition: all 0.4s ease-in-out;
+}
+
+
+/* The switch - the box around the slider */
+.switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 3.5em;
+  height: 2em;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--purple);
+  transition: 0.5s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.4em;
+  width: 1.4em;
+  border-radius: 50%;
+  left: 10%;
+  bottom: 15%;
+  box-shadow: inset 8px -4px 0px 0px white;
+  background: var(--background);
+  transition: 0.5s;
+}
+
+input:checked + .slider {
+  background-color: var(--light-blue);
+}
+
+input:checked + .slider:before {
+  transform: translateX(100%);
+  box-shadow: inset 15px -4px 0px 15px var(--yellow);
+}
+
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-color);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 1s ease-in-out;
+}
+
+.preloader__spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #ccc;
+  border-top-color: #000;
+  border-radius: 50%;
+  animation: preloader-spin 1s linear infinite;
+}
+
+
+html,nav,.darkMode-navbar-menu,.darkMode-card,#navbar_burger,.ol,.card,.dad-icon {
+  transition: all 0.5s ease-in-out;
+}
+
+.darkMode {
+  background-color: var(--darkMode);
+}
+.darkMode-text,.darkMode-content{
+  color: white;
+}
+
+.darkMode-card{
+  background-color: var(--darkMode);
+  border: 1px solid white;
+}
+
+.navbar-text:hover {
+  cursor: pointer;
+}
+
+.navbar-item {
+  text-align: center;
+}
+
+/* hover underline */
+.navbar-text{
+  display: inline-block;
+  text-decoration: none;
+}
+
+.navbar-text:after {
+  content: "";
+  display: block;
+  height: 2px;
+  background-color: var(--light-blue);
+  transition: all 0.4s ease-in-out;
+  width: 0;
+}
+
+.navbar-text:hover:after {
+  width: 100%;
+}
+
+
+.footer_text{
+  transition: background-color 0.3s ease-in-out;
+}
+
+.footer_text:hover{
+  background-color: var(--light-blue);
+}
+
+/* histoey card */
+.run{
+  animation: rightToLeft 0.5s cubic-bezier(.36,-0.64,.34,1.76) forwards;
+}
+
+ol{
+  perspective: 100px;
+}
+
+li{
+  padding: 5px 0;
+}
+
+.load{
+   animation: fade 1s cubic-bezier(.36,-0.64,.34,1.76) ;
+}
+
+.history{
+  display: block;
+  height: 0;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+  pointer-events: none;
+  transform: translateY(100%);
+}
+
+
+.history_active{
+  opacity: 1;
+  height: 100%;
+  transform: none;
+  pointer-events: auto;
+}
+
+.xmark{
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.xmark:hover{
+
+  color: var(--light-blue);
+}
+
+.card{
+  position: relative;
+
+}
+
+
+@media only screen and (max-width: 768px) {
+  .lv{
+   flex-direction: column;
+  }
+
+  .level-left{
+    padding-bottom: 15px;
+  }
+
+  
+}
+
+/* check if i need to delete this or not */
+/* @media only screen and (max-width: 1023px) {
+  .navbar-text{
+    display: block;
+    padding: 20px 0;
+  }
+  .navbar-text:after{
+    display: none ;
+  }
+
+  .section{
+    transition: all 0.8s ease-in-out;
+  }
+
+  .darkMode-navbar-menu{
+    transition: all 0.4s ease-in;
+    background-color: var(--darkMode-black);
+  }
+
+  .navbar-menu{
+    display: block;
+    opacity: 0;
+
+    left: 0;
+    right: 0;
+    height: 0;
+
+    transform: translateY(-50%);
+    transition: all 0.5s ease-in-out;
+    pointer-events: none;
+  }
+
+  .navbar-menu.is-active {
+    opacity: 1;
+    height: 100%;
+    transform: none;
+    pointer-events: auto;
+  }
+} */
