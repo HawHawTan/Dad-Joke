@@ -10,8 +10,6 @@ const modal = document.querySelector(".modal");
 const ol = document.querySelector(".ol");
 const footer = document.querySelectorAll(".bottom-text");
 
-
-
 //card
 const joke_card = document.querySelector(".card");
 const history_section = document.querySelector(".history");
