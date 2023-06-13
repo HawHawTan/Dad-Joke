@@ -206,8 +206,6 @@ const next = async () => {
   if (checkbox.checked) {
     newLI.classList.toggle("darkMode-text");
   }
-
-  
   //http://jsfiddle.net/Bxn2t/1/
 };
 
@@ -247,7 +245,7 @@ const closeHistory = () => {
 };
 
 clear_button.addEventListener("click", () => {
-  localStorage.clear("save");
+  localStorage.removeItem("save");
   showHistory();
 });
 
