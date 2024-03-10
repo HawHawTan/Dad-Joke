@@ -48,7 +48,8 @@ const saveHistoryClick = history_button.onclick;
 const saveNexClick = next_button.onclick;
 
 // https://github.com/apnsngr/bulma-popover
-function start_intruction() {
+function start_instruction() {
+  confirm("Plese read through this:\n \nIt will show you how it works first, please allow it to show you the functions of the dad jokes \n \nEnjoy!");
   if (JSON.parse(localStorage.getItem("save")) == null || JSON.parse(localStorage.getItem("save")).length <= 1) {
     let i;
     const blurArr = [
@@ -146,7 +147,8 @@ const defaultDarkMode = async () => {
   }, 700);
   card_text.innerHTML = jokes;
   save(jokes);
-  start_intruction();
+
+  start_instruction();
 };
 
 const darkMode = () => {
@@ -183,11 +185,7 @@ function darkModeList() {
   });
 }
 
-
-
-
 const next = async () => {
-
   card_text.innerHTML = " ";
   card_text.classList.add("run");
 
