@@ -49,7 +49,6 @@ const saveNexClick = next_button.onclick;
 
 // https://github.com/apnsngr/bulma-popover
 function start_instruction() {
-  confirm("Plese read through this:\n \nIt will show you how it works first, please allow it to show you the functions of the dad jokes \n \nEnjoy!");
   if (JSON.parse(localStorage.getItem("save")) == null || JSON.parse(localStorage.getItem("save")).length <= 1) {
     let i;
     const blurArr = [
@@ -64,7 +63,7 @@ function start_instruction() {
     history_button.onclick  = null;
     next_button.onclick = null;
     checkbox.disabled = true;
-
+    confirm("Plese read through this:\n \nIt will show you how it works first, please allow it to show you the functions of the dad jokes \n \nEnjoy!");
     for (i = 0; i < blurArr.length; i++) {
       blurArr[i].classList.add("blur_background");
     }
